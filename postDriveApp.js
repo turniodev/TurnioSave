@@ -2,7 +2,7 @@ function doPost(request) {
   const file = JSON.parse(request.postData.contents)
    const datafile = Utilities.base64Decode(file.data);
   const blob = Utilities.newBlob(datafile, file.type, file.name);
-  const folderId = "14PFXiarcdUz9O-CgVx_Fs1mQXw93PbLJ"; // Thay đổi id của thư mục cần lưu file tại đây
+  const folderId = "14PFXiarcdUz9O-CgVx__Fs1m____Xw93PbLJ"; // Thay đổi id của thư mục cần lưu file tại đây
   const folder = DriveApp.getFolderById(folderId);
   const newFile = folder.createFile(blob);
   const url = newFile.getUrl();
