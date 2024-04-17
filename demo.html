@@ -220,6 +220,17 @@
           margin: 20px auto !important;
         }
       }
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        gap: 10px;
+        font-size: 14px;
+      }
+      label > input {
+        margin-bottom: 2px !important;
+      }
     </style>
     <main>
       <div class="ideas_webinar">
@@ -423,19 +434,12 @@
                 ></i>
                 Webinar via Zoom
               </h2>
-              <div style="">
-                <p>
-                  Họ và tên <i style="font-size: 0.8rem; color: #9f0014">*</i>
-                </p>
-                <input
-                  type="text"
-                  autocomplete="true"
-                  placeholder="Họ và tên"
-                  id="name"
-                />
+              <div>
+                <p>Họ và tên</p>
+                <input type="text" autocomplete="true" id="name" />
               </div>
               <div>
-                <p>Email <i style="font-size: 0.8rem; color: #9f0014">*</i></p>
+                <p>Email</p>
                 <span
                   style="
                     font-size: 0.8rem;
@@ -444,12 +448,7 @@
                   "
                   >Để nhận link ZOOM tham dự
                 </span>
-                <input
-                  type="email"
-                  autocomplete="true"
-                  placeholder="Email"
-                  id="mail"
-                />
+                <input type="email" autocomplete="true" id="mail" />
               </div>
               <div>
                 <p>Select</p>
@@ -464,16 +463,7 @@
                 <p>Giới tính</p>
                 <div style="display: flex; align-items: center; gap: 30px">
                   <label
-                    style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      height: 30px;
-                      gap: 10px;
-                      font-size: 14px;
-                    "
                     ><input
-                      style="margin-bottom: 2px"
                       type="radio"
                       name="gender"
                       value="Nam"
@@ -481,20 +471,7 @@
                     />Nam</label
                   >
                   <label
-                    style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      height: 30px;
-                      gap: 10px;
-                      font-size: 14px;
-                    "
-                    ><input
-                      style="margin-bottom: 2px"
-                      type="radio"
-                      name="gender"
-                      value="Nữ"
-                    />Nữ</label
+                    ><input type="radio" name="gender" value="Nữ" />Nữ</label
                   >
                 </div>
               </div>
@@ -535,37 +512,7 @@
           }
         }, 1000);
       </script>
-      <script>
-        const name = document.getElementById("name");
-        const phone = document.getElementById("phone");
-        const mail = document.getElementById("mail");
-        const submit = document.getElementById("submit");
-        submit.addEventListener("click", () => {
-          if (name.value && mail.value) {
-            const formData = new FormData();
-            formData.append("entry.973132396", name.value);
-            formData.append("entry.654923511", phone.value);
-            formData.append("entry.2099444758", mail.value);
-            postGoogleForm(formData);
-          } else {
-            alert("Vui lòng nhập tên và email");
-          }
-        });
-        async function postGoogleForm(formData) {
-          fetch(
-            "https://docs.google.com/forms/d/e/1FAIpQLSd_MVaDfwPlr23pPzW3vgBtSedHpXsdzezMtvsAZMjs_e7mdA/formResponse",
-            {
-              method: "POST",
-              body: formData,
-              mode: "no-cors",
-            }
-          );
-          alert(
-            "Cảm ơn bạn đã đăng ký tham gia. Link tham dự sẽ được gửi đến email của bạn"
-          );
-          window.location.href = "https://ideas.edu.vn/";
-        }
-      </script>
+      <script src="script.js"></script>
     </main>
   </body>
 </html>
