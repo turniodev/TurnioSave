@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <style>
+      .ideas_header,
+      .ideas_footer {
+        display: none !important;
+      }
+      body {
+        margin-top: 0 !important;
+        color: #333;
+      }
+      .ideas_webinar {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: #9f0014;
+      }
+      .webinar_container {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+      }
+
+      .webinar_container svg {
+        position: absolute;
+        width: 100%;
+        top: 10rem;
+        scale: 1.4;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .webinar_box {
+        width: 85%;
+        height: 85vh;
+        border-radius: 15px;
+        box-shadow: 0 0 5px rgba(61, 61, 61, 0.507);
+        background-color: white;
+        display: flex;
+        gap: 1px;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .webinar_box > div {
+        width: 30%;
+        padding: 3rem;
+      }
+      .webinar_info span.tag {
+        background: #9f0014;
+        padding: 0.2rem 1rem;
+        color: white;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .webinar_box > div:nth-child(1) {
+        width: 70%;
+        overflow-y: scroll;
+        background-color: white;
+      }
+      /* width */
+      .webinar_box div:nth-child(1)::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+
+      /* Handle */
+      .webinar_box div:nth-child(1)::-webkit-scrollbar-thumb {
+        background: #9f0014;
+      }
+
+      /* Handle on hover */
+      .webinar_box div:nth-child(1)::-webkit-scrollbar-thumb:hover {
+        background: #333;
+      }
+      .webinar_info h1 {
+        color: #333;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .webinar_info h2 i,
+      .webinar_info h2 span {
+        color: #333;
+        font-weight: bold;
+        font-size: 1.3rem !important;
+      }
+      .webinar_info h2 i {
+        color: #9f0014;
+      }
+      .webinar_timer {
+        display: flex;
+        justify-content: space-evenly !important;
+        width: 80% !important;
+        padding: 1rem;
+        margin: 0 auto;
+      }
+      .webinar_timer p {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        background: #d8d8d867;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        width: 22%;
+      }
+      .webinar_timer p > span:nth-child(1) {
+        color: #9f0014;
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+      .webinar_image {
+        display: flex;
+        gap: 5px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .webinar_image img {
+        width: 49%;
+        border-radius: 5px;
+      }
+      .webinar_form > div p {
+        font-weight: bold;
+        font-size: 0.8rem !important;
+      }
+      .webinar_form input,
+      textarea,
+      select {
+        border: 1px solid #808080;
+        padding: 5px 10px;
+        font-size: 0.8rem !important;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      .webinar_form input:focus {
+        border: 1px solid #9f0014;
+      }
+      .ideas_webinar #submit {
+        margin-top: 12px;
+        background-color: #9f0014;
+        color: white;
+        text-align: center;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .ideas_webinar #submit:hover {
+        filter: brightness(1.1);
+      }
+      .webinar_host {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .webinar_host img {
+        width: 100px;
+      }
+      @media only screen and (max-width: 767px) {
+        .webinar_timer {
+          gap: 20px;
+          width: 100% !important;
+        }
+        .webinar_container {
+          margin-top: 20px;
+          height: auto;
+          padding-bottom: 50px;
+        }
+        .webinar_box {
+          display: flex;
+          flex-direction: column-reverse;
+          width: 95% !important;
+          height: auto;
+        }
+        .webinar_box > div {
+          width: 100%;
+        }
+        .webinar_box > div {
+          padding: 2rem;
+        }
+        .webinar_info {
+          border-top: 1px dotted #9f0014;
+        }
+
+        .webinar_box > div:nth-child(1) {
+          width: 100%;
+        }
+        .webinar_image img {
+          width: 100% !important;
+        }
+        .webinar_host {
+          display: none;
+        }
+        .webinar_reward {
+          width: 80% !important;
+          margin: 20px auto !important;
+        }
+      }
+    </style>
+    <main>
+      <div class="ideas_webinar">
+        <div class="webinar_container">
+          <svg
+            fill="none"
+            height="563"
+            viewBox="0 0 1440 563"
+            width="1440"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <linearGradient
+              id="a"
+              gradientUnits="userSpaceOnUse"
+              x1="720"
+              x2="720"
+              y1="1"
+              y2="562"
+            >
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+              <stop offset="1" stop-color="#ffffff" />
+            </linearGradient>
+            <linearGradient id="b">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".5" />
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient
+              id="c"
+              gradientUnits="userSpaceOnUse"
+              x1="-18.9868"
+              x2="202.082"
+              xlink:href="#b"
+              y1="176.5"
+              y2="533.363"
+            />
+            <linearGradient
+              id="d"
+              gradientUnits="userSpaceOnUse"
+              x1="276.308"
+              x2="430.232"
+              xlink:href="#b"
+              y1="609"
+              y2="334.49"
+            />
+            <linearGradient
+              id="e"
+              gradientUnits="userSpaceOnUse"
+              x1="1080.2"
+              x2="1132.87"
+              y1="121.062"
+              y2="340.496"
+            >
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".31" />
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+            <path
+              d="m0 87 263.536 174 659.834-260 516.63 224.5m0 76.5-466.409-63.5-696.63 323.5-276.961-187"
+              stroke="url(#a)"
+            />
+            <path
+              d="m276.808 561.5-12.991-300.5-263.817-174v288z"
+              fill="url(#c)"
+            />
+            <path
+              d="m339.764 231-75.947 30 12.991 301 272.81-127z"
+              fill="url(#d)"
+            />
+            <path d="m1439 225-335.77-146v177l335.77 46z" fill="url(#e)" />
+          </svg>
+          <div class="webinar_box">
+            <div class="webinar_info">
+              <span class="tag">Webinar</span>
+              <h1>MBA Quốc tế mô thức 5.0 - Series #2</h1>
+              <p>
+                <span>
+                  <b style="color: #9f0014"
+                    >MORE THAN AN INNOVATIVE INTERACTIVE LEARNING PLATFORM -
+                    Trên cả một nền tảng công nghệ giáo dục cấp tiến
+                  </b>
+                </span>
+              </p>
+              <h2>
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>15:00 | 04/05/2024</span>
+              </h2>
+              <div class="webinar_timer">
+                <p><span id="days"></span><span>Ngày</span></p>
+                <p><span id="hours"></span><span>Giờ</span></p>
+                <p><span id="minutes"></span><span>Phút</span></p>
+              </div>
+              <h3 style="margin-top: 10px">
+                <i
+                  class="fa-solid fa-graduation-cap"
+                  style="color: #9f0014"
+                ></i>
+                <span>Tham gia ngay sự kiện hữu ích:</span>
+              </h3>
+
+              <ul style="margin-top: 5px">
+                <li>
+                  <i style="color: #9f0014" class="fa-solid fa-caret-right"></i>
+                  <span
+                    >Khám phá phương pháp học MBA Quốc Tế Online tiên tiến, hiện
+                    đại của các trường danh giá tại Châu Âu như SBS Swiss
+                    Business School, Swiss UMEF - University of Applied Science
+                    Institute, Ascencia Business School thuộc College de
+                    Paris</span
+                  >
+                </li>
+                <li>
+                  <i style="color: #9f0014" class="fa-solid fa-caret-right"></i>
+                  <span
+                    >Được giải đáp tất tần tật những thắc mắc xoay quanh việc
+                    làm thế nào để có được tấm bằng MBA Quốc tế, tối ưu hóa trải
+                    nghiệm học tập nhằm đạt kết quả tốt nhất trong hành trình
+                    học MBA Online của bản thân bởi những giáo sư, tiến sĩ uy
+                    tín trong ngành</span
+                  >
+                </li>
+                <li>
+                  <i style="color: #9f0014" class="fa-solid fa-caret-right"></i>
+                  <span>
+                    Ghi danh xét duyệt học bổng từ chính sách của các trường và
+                    từ quỹ học bổng của Viện IDEAS
+                  </span>
+                </li>
+                <li>
+                  <i style="color: #9f0014" class="fa-solid fa-caret-right"></i>
+                  <span>
+                    Cơ hội giành được các giải thưởng hấp dẫn của chương trình
+                    như Macbook Air, iPad Gen 10 cùng nhiều phần quà giá trị
+                    khác
+                  </span>
+                </li>
+                <img
+                  class="webinar_reward"
+                  style="width: 50%; display: block; margin: 40px auto 80px"
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/Institute-2-1.png"
+                />
+              </ul>
+              <p style="margin-top: 10px">
+                <span>
+                  Tiếp nối thành công của buổi hội thảo in-person được diễn ra
+                  tại tòa nhà Liên hiệp các Hội Khoa học và Kỹ thuật TP.HCM
+                  tháng 3 vừa qua, buổi đối thoại chuyên đề
+                  <b>Chinh phục MBA Quốc tế Mô thức 5.0 Series #2</b> lần này sẽ
+                  được tổ chức trực tuyến, nội dung chuyên sâu về nền tảng công
+                  nghệ giáo dục, với sự góp mặt của Giáo sư
+                  <b>Viola Krebs</b> từ College De Paris cùng các tiến sĩ, Viện
+                  trưởng và Viện phó của Viện IDEAS.</span
+                >
+              </p>
+
+              <img
+                src="https://ideas.edu.vn/wp-content/uploads/2024/04/1-1-1.png"
+              />
+              <p style="margin-top: 10px">
+                <span> Cùng xem lại hình ảnh của buổi hội thảo vừa qua: </span>
+              </p>
+              <div class="webinar_image">
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/tt2.webp"
+                />
+
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/tt4.webp"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/chihau3.webp"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/tt5.webp"
+                />
+                <img
+                  style="object-fit: cover"
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/432839636_885401703386386_7424559995610839533_n.jpg"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-4.jpg"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/1ffc176149ede6b3bffc-1.jpg"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/2d4600f4ab5704095d46-1.jpg"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/22f67c39d79a78c4218b-1.jpg"
+                />
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/384a46de1852b70cee43-1.jpg"
+                />
+              </div>
+            </div>
+            <div class="webinar_form" autocomplete="on">
+              <h2>
+                <i
+                  class="fa-solid fa-file-signature"
+                  style="color: #9f0014; font-size: 1.5rem"
+                ></i>
+                Webinar via Zoom
+              </h2>
+              <div style="">
+                <p>
+                  Họ và tên <i style="font-size: 0.8rem; color: #9f0014">*</i>
+                </p>
+                <input
+                  type="text"
+                  autocomplete="true"
+                  placeholder="Họ và tên"
+                  id="name"
+                />
+              </div>
+              <div>
+                <p>Email <i style="font-size: 0.8rem; color: #9f0014">*</i></p>
+                <span
+                  style="
+                    font-size: 0.8rem;
+                    margin-top: -0.3rem !important;
+                    display: block;
+                  "
+                  >Để nhận link ZOOM tham dự
+                </span>
+                <input
+                  type="email"
+                  autocomplete="true"
+                  placeholder="Email"
+                  id="mail"
+                />
+              </div>
+              <div>
+                <p>Select</p>
+                <select id="select">
+                  <option value="0" hidden>Bạn chọn cái nào?</option>
+                  <option value="Chọn cái 1">Option 1</option>
+                  <option value="Chọn cái 2">Option 2</option>
+                  <option value="Chọn cái 3">Option 3</option>
+                </select>
+              </div>
+              <div>
+                <p>Giới tính</p>
+                <div style="display: flex; align-items: center; gap: 30px">
+                  <label
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 30px;
+                      gap: 10px;
+                      font-size: 14px;
+                    "
+                    ><input
+                      style="margin-bottom: 2px"
+                      type="radio"
+                      name="gender"
+                      value="Nam"
+                      checked
+                    />Nam</label
+                  >
+                  <label
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 30px;
+                      gap: 10px;
+                      font-size: 14px;
+                    "
+                    ><input
+                      style="margin-bottom: 2px"
+                      type="radio"
+                      name="gender"
+                      value="Nữ"
+                    />Nữ</label
+                  >
+                </div>
+              </div>
+              <div>
+                <p>Nội dung tư vấn</p>
+                <textarea id="content" placeholder="Nội dung"></textarea>
+              </div>
+              <p id="submit">ĐĂNG KÝ THAM GIA</p>
+              <div class="webinar_host">
+                <img
+                  src="https://ideas.edu.vn/wp-content/uploads/2024/04/Untitled-1-1.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        var countDownDate = new Date("May 4, 2024 15:00:00").getTime();
+        var x = setInterval(function () {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          document.getElementById("days").innerHTML =
+            (days > 9 && days) || "0" + days;
+          document.getElementById("hours").innerHTML =
+            (hours > 9 && hours) || "0" + hours;
+          document.getElementById("minutes").innerHTML =
+            (minutes > 9 && minutes) || "0" + minutes;
+
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Đã kết thúc";
+          }
+        }, 1000);
+      </script>
+      <script>
+        const name = document.getElementById("name");
+        const phone = document.getElementById("phone");
+        const mail = document.getElementById("mail");
+        const submit = document.getElementById("submit");
+        submit.addEventListener("click", () => {
+          if (name.value && mail.value) {
+            const formData = new FormData();
+            formData.append("entry.973132396", name.value);
+            formData.append("entry.654923511", phone.value);
+            formData.append("entry.2099444758", mail.value);
+            postGoogleForm(formData);
+          } else {
+            alert("Vui lòng nhập tên và email");
+          }
+        });
+        async function postGoogleForm(formData) {
+          fetch(
+            "https://docs.google.com/forms/d/e/1FAIpQLSd_MVaDfwPlr23pPzW3vgBtSedHpXsdzezMtvsAZMjs_e7mdA/formResponse",
+            {
+              method: "POST",
+              body: formData,
+              mode: "no-cors",
+            }
+          );
+          alert(
+            "Cảm ơn bạn đã đăng ký tham gia. Link tham dự sẽ được gửi đến email của bạn"
+          );
+          window.location.href = "https://ideas.edu.vn/";
+        }
+      </script>
+    </main>
+  </body>
+</html>
