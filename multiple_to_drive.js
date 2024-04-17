@@ -11,7 +11,7 @@ function doPost(request) {
   const newFile = folder.createFile(blob);
   const url = newFile.getUrl();
   const id = newFile.getId();
-  output[index] = { status: "success", name: file.name, id: id, view: url, link: `https://drive.google.com/thumbnail?id=${id}`}
+  output[index] = { status: "success", name: file.name, id: id, view: url, link: `https://drive.google.com/thumbnail?id=${id}&sz=s500`}
   })
   return ContentService.createTextOutput(JSON.stringify(output)).setMimeType(ContentService.MimeType.JSON); 
 }
