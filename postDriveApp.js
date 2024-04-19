@@ -7,7 +7,7 @@ function doPost(request) {
   const newFile = folder.createFile(blob);
   const url = newFile.getUrl();
   const id = newFile.getId();
-  const output = { status: "success", name: file.name, id: id, view: url, link: `https://drive.google.com/thumbnail?id=${id}`};
+  const output = { status: "success", name: file.name, id: id, view: url, link: `https://lh3.googleusercontent.com/d/${id}`};
   return ContentService.createTextOutput(JSON.stringify(output)).setMimeType(ContentService.MimeType.JSON); 
 }
 
