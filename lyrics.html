@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karaoke Lyrics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Great+Vibes&family=Italianno&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        transition: 0.2s;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #e5e5e5;
+        margin: 0;
+        padding: 20px;
+        font-family: "Exo", sans-serif;
+      }
+      p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const lyrics = [
+        "Yên bình có quá đắt không?",
+        "Mà sao? cơn giông vội vã kéo đến",
+        "Phủ kín nát lòng, ngơ ngác",
+        "Choáng váng vì linh hồn ta",
+        "Dường như hiếu động",
+        "Về một thế giới mang tên cầu vồng",
+        "Dòng thời gian lặng im",
+        "Thờ ơ về ngôi nhà ta",
+        "Muốn thu mình trong màn đêm",
+        "Bao nhiêu là thêm là bớt",
+        "Cho nỗi niềm găm sâu vào tim",
+        "Bình yên ơi sao lại khó tìm?",
+      ];
+      const delays = [
+        [200, 300, 300, 200, 200, 700],
+        [500, 500, 200, 450, 200, 200, 200, 200],
+        [200, 200, 200, 1200, 200, 800],
+        [400, 300, 300, 200, 200, 200],
+        [200, 200, 200, 600],
+        [350, 500, 400, 600, 400, 400, 800, 3000],
+        [700, 700, 800, 200, 800],
+        [300, 200, 200, 200, 200, 700],
+        [300, 400, 200, 400, 400, 800],
+        [200, 400, 200, 400, 200, 200],
+        [200, 200, 300, 200, 200, 200, 800],
+        [600, 500, 500, 500, 500, 500, 200],
+      ];
+      const body = document.body;
+      function displayLine(lineIndex) {
+        if (lineIndex >= lyrics.length) return;
+        const line = document.createElement("p");
+        body.appendChild(line);
+        const words = lyrics[lineIndex].split(" ");
+        let charIndex = 0;
+        function displayWord() {
+          if (charIndex < words.length) {
+            line.innerHTML += words[charIndex] + " ";
+            setTimeout(
+              displayWord,
+              delays[lineIndex][charIndex % delays[lineIndex].length]
+            );
+            charIndex++;
+          } else {
+            displayLine(lineIndex + 1);
+          }
+        }
+        displayWord();
+      }
+      displayLine(0);
+    </script>
+  </body>
+</html>
