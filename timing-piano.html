@@ -366,7 +366,7 @@
         audio.currentTime = 0;
         audio.play();
       }
-
+      // playSong(song, delays)
       function playSong(song, delays) {
         for (let i = 0; i < song.length; i++) {
           setTimeout(() => {
@@ -478,25 +478,26 @@
         "A4",
         "C5",
       ];
+      const delays = []; // Lấy Array timing bên dưới
 
       // BẬT ĐOẠN NÀY LÊN ĐỂ TIMMING NỐT KHI KEYDOWN
-      let i = 0;
-      let startTime = null;
-      let timesArray = [];
+      // let i = 0;
+      // let startTime = null;
+      // let timesArray = [];
 
-      window.addEventListener("keydown", (e) => {
-        if (i >= song.length - 1) return;
-        const currentTime = Date.now();
-        if (i === 0) {
-          time = 0;
-          startTime = currentTime;
-        }
-        const elapsed = currentTime - startTime;
-        timesArray.push(elapsed);
-        i++;
-        playNote(song[i]);
-        console.log(timesArray);
-      });
+      // window.addEventListener("keydown", (e) => {
+      //   if (i >= song.length - 1) return;
+      //   const currentTime = Date.now();
+      //   if (i === 0) {
+      //     time = 0;
+      //     startTime = currentTime;
+      //   }
+      //   const elapsed = currentTime - startTime;
+      //   timesArray.push(elapsed);
+      //   i++;
+      //   playNote(song[i]);
+      //   console.log(timesArray);
+      // });
     </script>
   </body>
 </html>
