@@ -448,23 +448,23 @@
         21341, 21595, 22057, 22310, 22804, 23502, 24446, 24816, 25168, 25446,
         25699, 25976, 26248, 26791, 27050, 27570, 28365, 29716, 30450,
       ];
-      // BẬT ĐOẠN NÀY LÊN ĐỂ TIMMING NỐT KHI KEYDOWN
-      let i = 0;
-      let startTime = null;
-      let timesArray = [];
-      const keydownTiming = (e) => {
-        if (i >= song.length - 1) return;
-        const currentTime = Date.now();
-        if (i === 0) {
-          startTime = currentTime;
-        }
-        const elapsed = currentTime - startTime;
-        timesArray.push(elapsed);
-        i += 1;
-        playNote(song[i]);
-        console.log(timesArray);
-      };
-      window.addEventListener("keydown", (e) => keydownTiming(e));
+      // BẬT ĐOẠN NÀY LÊN ĐỂ TIMING NỐT KHI KEYDOWN
+      // let i = 0;
+      // let startTime = null;
+      // let timesArray = [];
+      // const keydownTiming = (e) => {
+      //   if (i >= song.length - 1) return;
+      //   const currentTime = Date.now();
+      //   if (i === 0) {
+      //     startTime = currentTime;
+      //   }
+      //   const elapsed = currentTime - startTime;
+      //   timesArray.push(elapsed);
+      //   i += 1;
+      //   playNote(song[i]);
+      //   console.log(timesArray);
+      // };
+      // window.addEventListener("keydown", (e) => keydownTiming(e));
     </script>
   </body>
 </html>
