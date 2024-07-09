@@ -371,7 +371,7 @@
         for (let i = 0; i < song.length; i++) {
           setTimeout(() => {
             playNote(song[i]);
-              console.log(`time: ${delays[i]}ms | note: ${song[i]} `);
+            console.log(`time: ${delays[i]}ms | note: ${song[i]} `);
           }, delays[i]);
         }
       }
@@ -449,22 +449,22 @@
         25699, 25976, 26248, 26791, 27050, 27570, 28365, 29716, 30450,
       ];
       // BẬT ĐOẠN NÀY LÊN ĐỂ TIMING NỐT KHI KEYDOWN
-      // let i = 0;
-      // let startTime = null;
-      // let timesArray = [];
-      // const keydownTiming = (e) => {
-      //   if (i >= song.length - 1) return;
-      //   const currentTime = Date.now();
-      //   if (i === 0) {
-      //     startTime = currentTime;
-      //   }
-      //   const elapsed = currentTime - startTime;
-      //   timesArray.push(elapsed);
-      //   i += 1;
-      //   playNote(song[i]);
-      //   console.log(timesArray);
-      // };
-      // window.addEventListener("keydown", (e) => keydownTiming(e));
+      let i = 0;
+      let startTime = null;
+      let timesArray = [];
+      const keydownTiming = (e) => {
+        if (i >= song.length - 1) return;
+        const currentTime = Date.now();
+        if (i === 0) {
+          startTime = currentTime;
+        }
+        const elapsed = currentTime - startTime;
+        timesArray.push(elapsed);
+        playNote(song[i]);
+        console.log(timesArray);
+        i++;
+      };
+      window.addEventListener("keydown", (e) => keydownTiming(e));
     </script>
   </body>
 </html>
