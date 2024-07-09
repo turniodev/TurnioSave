@@ -371,7 +371,7 @@
         for (let i = 0; i < song.length; i++) {
           setTimeout(() => {
             playNote(song[i]);
-            console.log(song[i]);
+              console.log(`time: ${delays[i]}ms | note: ${song[i]} `);
           }, delays[i]);
         }
       }
