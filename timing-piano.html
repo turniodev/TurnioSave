@@ -453,7 +453,7 @@
       let startTime = null;
       let timesArray = [];
       const keydownTiming = (e) => {
-        if (i >= song.length - 1) return;
+        if (i >= song.length) return;
         const currentTime = Date.now();
         if (i === 0) {
           startTime = currentTime;
